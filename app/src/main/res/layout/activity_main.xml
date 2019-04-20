@@ -9,7 +9,7 @@
     tools:context=".View.Main.MainActivity">
 
     <TextView
-        android:text="Player List : "
+        android:text="HIsstory List : "
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_margin="6dp"

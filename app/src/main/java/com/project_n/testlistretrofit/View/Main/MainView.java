@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface MainView {
 
-    void playerReady(List<Player> Players);
+//    void playerReady(List<Player> Players);
     void historyReady(List<History> Histories);
 }
