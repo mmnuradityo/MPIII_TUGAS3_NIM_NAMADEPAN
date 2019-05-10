@@ -3,13 +3,9 @@ package com.project_n.testlistretrofit.View.Main;
 import android.support.v7.app.AppCompatDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.project_n.testlistretrofit.Model.History;
-import com.project_n.testlistretrofit.Model.HistoryItem;
 import com.project_n.testlistretrofit.Presenter.HistoryPresenter;
 import com.project_n.testlistretrofit.Presenter.PlayerPresenterImpl;
 import com.project_n.testlistretrofit.R;
@@ -55,12 +51,6 @@ public class MainActivity extends BaseActivity implements MainView {
         rv_adapterPlayer = new RV_AdapterPlayer(this);
         mRvPlayer.setAdapter(rv_adapterPlayer);
 
-        rv_adapterPlayer.setOnCallbackListener(new RV_AdapterPlayer.OnCallbackListener() {
-            @Override
-            public void onClick(History history) {
-                showDialogDetail(history);
-            }
-        });
     }
 
     @Override
@@ -74,24 +64,5 @@ public class MainActivity extends BaseActivity implements MainView {
 ////                    + " - nama: " + history.getNama());
 ////        }
     }
-
-    public void showDialogDetail(final History HistoryhistoryItem) {
-        dialog = new AppCompatDialog(this);
-        dialog.setContentView(R.layout.item_history);
-        dialog.setTitle("");
-        List<HistoryItem> historyItems = HistoryhistoryItem.getHistory();
-        final TextView klub = dialog.findViewById(R.id.tv_club);
-        klub.setText(historyItems.get(0).getKlub());
-
-        final Button btnOK = dialog.findViewById(R.id.btn_OK);
-        btnOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-    }
-
 
 }

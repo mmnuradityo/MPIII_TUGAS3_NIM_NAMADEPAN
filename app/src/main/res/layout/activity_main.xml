@@ -8,15 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".View.Main.MainActivity">
 
-    <TextView
-        android:text="HIsstory List : "
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_margin="6dp"
-        android:textColor="@color/colorAccent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <android.support.v7.widget.RecyclerView
         android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"

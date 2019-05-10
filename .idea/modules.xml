@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Retrofit_MVP_simple_Log.iml" filepath="$PROJECT_DIR$/Retrofit_MVP_simple_Log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MPIII_TUGAS3_NIM_NAMADEPAN.iml" filepath="$PROJECT_DIR$/MPIII_TUGAS3_NIM_NAMADEPAN.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
