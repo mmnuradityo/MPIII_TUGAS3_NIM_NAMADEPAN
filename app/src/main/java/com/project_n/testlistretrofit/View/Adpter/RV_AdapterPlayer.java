@@ -1,18 +1,21 @@
 package com.project_n.testlistretrofit.View.Adpter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.project_n.testlistretrofit.Model.History;
 import com.project_n.testlistretrofit.Model.HistoryItem;
 import com.project_n.testlistretrofit.R;
+import com.project_n.testlistretrofit.View.DetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +26,7 @@ public class RV_AdapterPlayer extends RecyclerView.Adapter<RV_AdapterPlayer.MyVi
     private List<History> histories = new ArrayList<>();
     private Context context;
     private OnCallbackListener listener;
+    private String idPemain, setNama;
 
     public RV_AdapterPlayer(Context context) {
         this.context = context;
@@ -45,6 +49,8 @@ public class RV_AdapterPlayer extends RecyclerView.Adapter<RV_AdapterPlayer.MyVi
         myViewHolder.id.setText(history.getPosisi());
         myViewHolder.nama.setText(history.getNama());
         myViewHolder.team.setText(history.getAge());
+        idPemain = history.getPosisi();
+        setNama = history.getNama();
 
         Glide
                 .with(context)
@@ -67,6 +73,7 @@ public class RV_AdapterPlayer extends RecyclerView.Adapter<RV_AdapterPlayer.MyVi
 
         private TextView id, nama, team;
         private ImageView imgProfile;
+        private LinearLayout line;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -74,6 +81,17 @@ public class RV_AdapterPlayer extends RecyclerView.Adapter<RV_AdapterPlayer.MyVi
             nama = itemView.findViewById(R.id.tv_nama);
             team = itemView.findViewById(R.id.tv_umur);
             imgProfile = itemView.findViewById(R.id.img_profile);
+            line = itemView.findViewById(R.id.ll_Item);
+
+            line.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, DetailActivity.class);
+                    i.putExtra("id", idPemain);
+                    i.putExtra("nama", setNama);
+                    context.startActivity(i);
+                }
+            });
         }
 
         @Override
