@@ -5,16 +5,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.project_n.testlistretrofit.Presenter.Login.LoginImpl;
 import com.project_n.testlistretrofit.R;
 import com.project_n.testlistretrofit.View.Base.BaseActivity;
 import com.project_n.testlistretrofit.View.Main.MainActivity;
-import com.project_n.testlistretrofit.utils.PreferencesHelper;
 
 public class LoginActivity extends BaseActivity {
 
-    private PreferencesHelper preferencesHelper;
     private EditText email, pass;
     private String user_email, user_pass;
+    private LoginImpl login;
 
     @Override
     public int getLayout() {
@@ -23,7 +23,8 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initComponents() {
-        preferencesHelper = PreferencesHelper.getInstance(getApplicationContext());
+        login = new LoginImpl();
+        login.loginComponenet(this);
     }
 
     @Override
@@ -34,7 +35,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        if (preferencesHelper.isLogin()) {
+        if (login.getLogin()) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
     }
@@ -42,10 +43,15 @@ public class LoginActivity extends BaseActivity {
     public void btn_login(View view) {
         user_email = email.getText().toString();
         user_pass = pass.getText().toString();
-        preferencesHelper.setLogin(true);
-        preferencesHelper.setName(email.getText().toString());
-        Toast.makeText(this, "login sukses", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+        if (user_email == "" & user_pass == "") {
+            Toast.makeText(this, "harap masukan Email dan Password", Toast.LENGTH_SHORT).show();
+        } else {
+            login.setLogin(user_email, true);
+            Toast.makeText(this, "login sukses", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        }
+
     }
 
 

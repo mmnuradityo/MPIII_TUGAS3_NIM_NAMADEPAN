@@ -6,11 +6,11 @@ import android.widget.TextView;
 
 import com.project_n.testlistretrofit.Model.History;
 import com.project_n.testlistretrofit.Presenter.Main.HistoryPresenter;
+import com.project_n.testlistretrofit.Presenter.Main.MainImpl;
 import com.project_n.testlistretrofit.Presenter.Main.PlayerPresenterImpl;
 import com.project_n.testlistretrofit.R;
 import com.project_n.testlistretrofit.View.Adpter.RV_AdapterPlayer;
 import com.project_n.testlistretrofit.View.Base.BaseActivity;
-import com.project_n.testlistretrofit.utils.PreferencesHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +23,8 @@ public class MainActivity extends BaseActivity implements MainView {
     private List<History> mHistories = new ArrayList<>();
     private PlayerPresenterImpl playerPresenterImpl;
     private HistoryPresenter historyPresenter;
-    private PreferencesHelper preferencesHelper;
     private TextView email;
+    private MainImpl main;
 
     @Override
     public int getLayout() {
@@ -37,7 +37,8 @@ public class MainActivity extends BaseActivity implements MainView {
         historyPresenter = new HistoryPresenter(this);
         playerPresenterImpl.getData();
         historyPresenter.getData();
-        preferencesHelper = PreferencesHelper.getInstance(getApplicationContext());
+        main = new MainImpl();
+        main.MainComponent(this);
     }
 
     @Override
@@ -51,7 +52,7 @@ public class MainActivity extends BaseActivity implements MainView {
         mRvPlayer.setLayoutManager(new LinearLayoutManager(this));
         rv_adapterPlayer = new RV_AdapterPlayer(this);
         mRvPlayer.setAdapter(rv_adapterPlayer);
-        email.setText(preferencesHelper.getName());
+        email.setText(main.getName());
     }
 
     @Override
