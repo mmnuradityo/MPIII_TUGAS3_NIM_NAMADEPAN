@@ -14,6 +14,7 @@
     android:fillViewport="true">
 
     <LinearLayout
+        android:nestedScrollingEnabled="true"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -180,6 +181,8 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -197,7 +200,6 @@
             android:layout_height="wrap_content" />
         <ListView
             android:id="@+id/lv_History"
-            android:nestedScrollingEnabled="true"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content">

@@ -13,15 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".View.DetailActivity"></activity>
+
         <activity
-            android:name=".View.Main.MainActivity"
+            android:name=".View.Login.LoginActivity"
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.DetailActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".View.Main.MainActivity"
+            tools:ignore="InnerclassSeparator">
         </activity>
     </application>
 

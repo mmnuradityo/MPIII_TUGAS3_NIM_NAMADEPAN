@@ -27,7 +27,6 @@ public class RV_AdapterPlayer extends RecyclerView.Adapter<RV_AdapterPlayer.MyVi
 
     private List<History> histories = new ArrayList<>();
     private Context context;
-    private String setPosisis, setNama, setNegara, setTeam, setDesk, setNomor, setGambar, setUmur;
 
     public RV_AdapterPlayer(Context context) {
         this.context = context;
@@ -47,14 +46,14 @@ public class RV_AdapterPlayer extends RecyclerView.Adapter<RV_AdapterPlayer.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
         History history = histories.get(position);
-        setPosisis = history.getPosisi();
-        setNama = history.getNama();
-        setUmur = history.getAge();
-        setNegara = history.getNegara();
-        setTeam = history.getTeam();
-        setNomor = history.getNomor();
-        setDesk = history.getDeskripsi();
-        setGambar = history.getGambar();
+        final String setPosisis = history.getPosisi();
+        final String setNama = history.getNama();
+        final String setUmur = history.getAge();
+        final String setNegara = history.getNegara();
+        final String setTeam = history.getTeam();
+        final String setNomor = history.getNomor();
+        final String setDesk = history.getDeskripsi();
+        final String setGambar = history.getGambar();
         final ArrayList<HistoryItem> historyItem = new ArrayList<>();
         historyItem.addAll(history.getHistory());
 

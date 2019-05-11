@@ -96,8 +96,6 @@ public class DetailActivity extends BaseActivity {
         LV_Item.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-//                view.getParent().requestDisallowInterceptTouchEvent(true);
-//                return false;
                 return (motionEvent.getAction() == MotionEvent.ACTION_MOVE);
             }
         });
